@@ -177,6 +177,12 @@ ifeq ($(OS_platform), linux_platform)
 LDADD+=-L/usr/lib/x86_64-linux-gnu/
 CL_LDADD+=-L/usr/lib/x86_64-linux-gnu/
 endif
+
+# added by Ilari Korhonen (on osx build against openssl-1.0)
+ifeq ($(OS_platform), osx_platform)
+LDADD+=-L/usr/local/opt/openssl/lib
+endif
+
 LDADD+=-lssl -lcrypto
 CL_LDADD+=-lssl -lcrypto
 

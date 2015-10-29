@@ -958,7 +958,7 @@ else
     echo "Detected pam library [$PAMDEV]"
 fi
 
-OPENSSLDEV=`find /usr/include/openssl /opt/csw/include/openssl -name sha.h 2> /dev/null`
+OPENSSLDEV=`find /usr/include/openssl /opt/csw/include/openssl /usr/local/opt/openssl/include/openssl -name sha.h 2> /dev/null`
 if [ "$OPENSSLDEV" == "" ] ; then
     if [ "$DETECTEDOS" == "Ubuntu" -o "$DETECTEDOS" == "Debian" ] ; then
         PREFLIGHT="$PREFLIGHT libssl-dev"

@@ -1932,9 +1932,14 @@ generateSQL( genQueryInp_t genQueryInp, char *resultingSQL,
         return USER_STRLEN_TOOLONG;
     }
     setOrderByUser( genQueryInp );
-    setOrderBy( genQueryInp, COL_COLL_NAME );
-    setOrderBy( genQueryInp, COL_DATA_NAME );
-    setOrderBy( genQueryInp, COL_DATA_REPL_NUM );
+
+    // removed by Ilari Korhonen (29-10-2015),
+    // for performance reasons (no sorting in the database, unless explicity requested thru
+    // the iRODS GenQuery API), two or three column sorts are heavy for large result sets!
+    //setOrderBy( genQueryInp, COL_COLL_NAME );
+    //setOrderBy( genQueryInp, COL_DATA_NAME );
+    //setOrderBy( genQueryInp, COL_DATA_REPL_NUM );
+
     if ( strlen( orderBySQL ) > 10 ) {
         if ( !rstrcat( combinedSQL, orderBySQL, MAX_SQL_SIZE_GQ ) ) { return USER_STRLEN_TOOLONG; }
     }

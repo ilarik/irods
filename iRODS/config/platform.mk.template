@@ -180,6 +180,7 @@ endif
 
 # added by Ilari Korhonen (on osx build against openssl-1.0)
 ifeq ($(OS_platform), osx_platform)
+CCFLAGS+=-I/usr/local/opt/openssl/include/openssl
 LDADD+=-L/usr/local/opt/openssl/lib
 endif
 

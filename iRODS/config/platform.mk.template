@@ -182,6 +182,9 @@ endif
 ifeq ($(OS_platform), osx_platform)
 CCFLAGS+=-I/usr/local/opt/openssl/include/openssl
 LDADD+=-L/usr/local/opt/openssl/lib
+# thanks to Niclas Jareborg (niclas.jareborg@bils.se) for this 
+CL_LDADD+=-L/usr/local/opt/openssl/lib
+MY_CFLAG+=-I/usr/local/opt/openssl/include
 endif
 
 LDADD+=-lssl -lcrypto

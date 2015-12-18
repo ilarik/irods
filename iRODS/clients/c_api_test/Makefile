@@ -50,6 +50,8 @@ ifneq (${OS_platform}, osx_platform)
 LDFLAGS += -lrt
 endif
 
+CFLAGS += -I/usr/local/opt/openssl/include
+
 # include c++ standard library linkage
 LDFLAGS += -lstdc++
 

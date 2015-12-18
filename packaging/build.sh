@@ -926,7 +926,7 @@ else
     echo "Detected bzip2 library [$BZIP2DEV]"
 fi
 
-ZLIBDEV=`find /usr/include -name zlib.h 2> /dev/null`
+ZLIBDEV=`find /usr/include /usr/local/Cellar -name zlib.h 2> /dev/null`
 if [ "$ZLIBDEV" == "" ] ; then
     if [ "$DETECTEDOS" == "Ubuntu" -o "$DETECTEDOS" == "Debian" ] ; then
         PREFLIGHT="$PREFLIGHT zlib1g-dev"
@@ -942,7 +942,7 @@ else
     echo "Detected zlib library [$ZLIBDEV]"
 fi
 
-PAMDEV=`find /usr/include -name pam_appl.h 2> /dev/null`
+PAMDEV=`find /usr/include /usr/local/include /usr/local/Cellar -name pam_appl.h 2> /dev/null`
 if [ "$PAMDEV" == "" ] ; then
     if [ "$DETECTEDOS" == "Ubuntu" -o "$DETECTEDOS" == "Debian" ] ; then
         PREFLIGHT="$PREFLIGHT libpam0g-dev"
@@ -1014,7 +1014,7 @@ if [ "$DATABASE_PLUGIN_TYPE" == "mysql" ] ; then
 fi
 
 # needed for libs3
-LIBXML2DEV=`find /usr/include/libxml2 /opt/csw/include/libxml2 -name parser.h 2> /dev/null`
+LIBXML2DEV=`find /usr/include/libxml2 /opt/csw/include/libxml2 /usr/local/Cellar -name parser.h 2> /dev/null`
 if [ "$LIBXML2DEV" == "" ] ; then
     if [ "$DETECTEDOS" == "Ubuntu" -o "$DETECTEDOS" == "Debian" ] ; then
         PREFLIGHT="$PREFLIGHT libxml2-dev"
@@ -1032,7 +1032,7 @@ else
 fi
 
 # needed for gsi auth capabilities
-KRB5DEV=`find /usr/include /opt/csw/include -name gssapi.h 2> /dev/null`
+KRB5DEV=`find /usr/include /opt/csw/include /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Kerberos.framework/Versions/A -name gssapi.h 2> /dev/null`
 if [ "$KRB5DEV" == "" ] ; then
     if [ "$DETECTEDOS" == "Ubuntu" -o "$DETECTEDOS" == "Debian" ] ; then
         PREFLIGHT="$PREFLIGHT libkrb5-dev"
